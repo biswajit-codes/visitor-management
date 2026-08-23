@@ -1,11 +1,6 @@
 # Visitor Management System
 
-<p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/badge/nextjs--starter--fullstack--dashboard--node-0a0a0a?style=for-the-badge&logo=next.js&logoColor=white">
-    <img alt="nextjs-starter-fullstack-dashboard-node" src="https://img.shields.io/badge/nextjs--starter--fullstack--dashboard--node-ffffff?style=for-the-badge&logo=next.js&logoColor=black">
-  </picture>
-</p>
+
 
 
 
@@ -13,7 +8,7 @@
   ⭐ If you find this project useful, consider giving it a star - it helps others discover it!
 </p>
 
-<p align="center">Production-ready Next.js starter template - TypeScript, Prisma 7 + SQLite, shadcn/ui, React Compiler, and modern tooling out of the box.</p>
+<p align="center">Production-ready Next.js - TypeScript, Prisma 7 + SQLite, shadcn/ui, React Compiler, and modern tooling out of the box.</p>
 
 ---
 
