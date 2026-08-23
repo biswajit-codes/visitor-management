@@ -1,0 +1,60 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+    provider = "prisma-client"
+    output   = "../generated/prisma"
+    // Target runtime environment. Default: nodejs
+    // runtime  = "nodejs"
+}
+
+datasource db {
+    provider = "sqlite"
+}
+
+
+enum VisitStatus {
+  REGISTERED
+  ACTIVE
+  CHECKED_OUT
+}
+
+model User {
+  id        String   @id @default(cuid())
+  name      String
+  phone     String   @unique
+  email     String   @unique
+  purpose   String
+
+  registeredAt DateTime @default(now())
+
+  visits    Visit[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+
+model Visit {
+  id     String @id @default(cuid())
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  purpose String
+
+  status VisitStatus @default(REGISTERED)
+
+  registeredAt DateTime  @default(now())
+  checkInAt    DateTime?
+  checkOutAt   DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([userId])
+  @@index([status])
+  @@index([status, registeredAt])
+  @@index([checkInAt])
+  @@index([checkOutAt])
+}
