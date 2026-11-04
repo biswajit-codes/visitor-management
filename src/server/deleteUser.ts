@@ -1,6 +1,7 @@
 "use server";
 
 import prisma from "@/lib/dbClient/prisma";
+import { revalidatePath } from "next/cache";
 
 const deleteUser = async (UserId: string) => {
   try {
@@ -9,6 +10,8 @@ const deleteUser = async (UserId: string) => {
         id: UserId,
       },
     });
+
+    revalidatePath("/user");
 
     return {
       isSuccess: true,

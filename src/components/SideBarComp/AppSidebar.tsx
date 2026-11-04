@@ -5,9 +5,7 @@ import {
   DoorOpen,
   GalleryVerticalEnd,
   IdCard,
-  Settings2,
   SquareTerminal,
-  UserCog,
   UserRoundPlus,
 } from "lucide-react";
 import { Route } from "next";
@@ -39,12 +37,12 @@ const menuItems = [
 
   {
     title: "Visitor",
-    url: "/user/checkin",
+    url: "/user",
     icon: IdCard,
   },
   {
     title: "Check-in",
-    url: "/user",
+    url: "/user/checkin",
     icon: DoorOpen,
   },
   {
@@ -74,17 +72,36 @@ const AppSidebar = (props: React.ComponentProps<typeof Sidebar>) => {
               <SidebarMenuButton
                 size="lg"
                 className="data-[state=open]:bg-sidebar-accent group-data-[collapsible=icon]:justify-center">
-                <div className="bg-sidebar-primary text-sidebar-primary-foreground flex size-9 shrink-0 items-center justify-center rounded-lg">
-                  <GalleryVerticalEnd className="size-5" />
-                </div>
 
-                <div className="flex flex-col overflow-hidden leading-tight group-data-[collapsible=icon]:hidden">
-                  <span className="truncate font-semibold">VisiFlow</span>
+                {/* logo section start */}
 
-                  <span className="text-muted-foreground truncate text-sm">
-                    Enterprise
-                  </span>
-                </div>
+                <Link href={`/`} className=" flex w-full items-center gap-3">
+                  <div className=" text-sidebar-primary-foreground flex size-9 shrink-0 items-center justify-center rounded-lg">
+                    {/* <GalleryVerticalEnd className="size-5" /> */}
+                    <Image
+                      src="/uploads/dash.png"
+                      width={550}
+                      height={550}
+                      alt="Picture of the author"
+                      style={{
+                        objectFit: "cover",
+                      }}
+                    />
+                  </div>
+
+                  <div className="flex flex-col overflow-hidden leading-tight group-data-[collapsible=icon]:hidden">
+
+                    <span className="truncate font-semibold">VisiFlow</span>
+
+
+                    <span className="text-muted-foreground truncate text-sm">
+                      Enterprise
+                    </span>
+                  </div>
+                </Link>
+
+                {/* logo section end */}
+
               </SidebarMenuButton>
             </SidebarMenuItem>
           </SidebarMenu>
