@@ -225,7 +225,7 @@ const UserCardUiShow = ({
       </CardContent>
       <CardFooter className="grid grid-cols-2 gap-3">
         <DeleteButton UserId={id} />
-        <CheckinButton />
+        <CheckinButton userId={id} />
       </CardFooter>
     </Card>
   );

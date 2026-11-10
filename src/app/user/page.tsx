@@ -3,6 +3,12 @@ import prisma from "@/lib/dbClient/prisma";
 
 const page = async () => {
   const allVisitor = await prisma.user.findMany({
+    where: {
+      visits: {
+        none: {},
+      },
+    },
+
     orderBy: {
       createdAt: "desc",
     },
@@ -11,7 +17,7 @@ const page = async () => {
   if (allVisitor.length === 0) {
     return (
       <div className="grid h-[85dvh] place-items-center">
-        <div className="text-2xl font-bold">No data Found... ffffff</div>
+        <div className="text-2xl font-bold">No Registered Users Found</div>
       </div>
     );
   }
@@ -26,7 +32,6 @@ const page = async () => {
           />
         ))}
       </div>
-
     </>
   );
 };
